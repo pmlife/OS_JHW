@@ -5,7 +5,7 @@ package MathOperations;
 
 import java.util.Scanner;
 
-public class SumInt {
+public class SumOfDigits {
 	
 	public static int getSumOfDigits(int a) {
 		  if (a < 0)

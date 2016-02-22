@@ -1,6 +1,6 @@
 package MathOperations;
 
-public class PrimeNumberCheck {
+public class PrimeNumberChecker {
 
 	public static boolean isPrime(int x) {
 		

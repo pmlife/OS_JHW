@@ -2,7 +2,7 @@ package MathOperations;
 
 import java.util.Scanner;
 
-public class NOD {
+public class GreatestCommonDivider {
 /* Алгоритм Евклида. 
  * Для нахождения наибольшего общего делителя двух чисел a и b (a и b – целые положительные числа, причем a больше или равно b) 
  * последовательно выполняется деление с остатком, которое дает ряд равенств вида

@@ -8,13 +8,14 @@ import java.util.Scanner;
 public class SumOfDigits {
 	
 	public static int getSumOfDigits(int a) {
-		  if (a < 0)
-			  return getSumOfDigits(-a);
 
-		  if (a < 10)
-			  return a;
+		if (a < 0)
+		return getSumOfDigits(-a);
 
-		  		return a % 10 + getSumOfDigits(a / 10);
+		if (a < 10)
+		return a;
+
+		return a % 10 + getSumOfDigits(a / 10);
 
 		 }
 

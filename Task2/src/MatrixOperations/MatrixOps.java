@@ -1,5 +1,9 @@
 package MatrixOperations;
 
+import java.util.Arrays;
+
+import com.itbursa.synekop.Matrix;
+
 public class MatrixOps {
 /*	3. Создать класс "Матрица".
  * Класс должен иметь следующие поля:
@@ -14,7 +18,7 @@ public class MatrixOps {
  *  5) вывод на печать.
 */
 	
-	private double[][] matrix;
+	private double[][] matrixx;
 	private int rows;
 	private int columns;
 
@@ -25,44 +29,77 @@ public class MatrixOps {
 	 *            -number of rows
 	 * @param columns
 	 *            - number of columns
+	 * @return 
 	 */
-	public Matrix(int rows, int columns) {
-		// TODO Auto-generated constructor stub
+	public void Matrix(int rows, int columns) {
+		this.rows = rows;
+		this.columns = columns;
+		matrixx = new double [rows][columns];
+		Arrays.fill (matrixx, 0);
 	}
 
 	/**
 	 * Creates a new instance of Matrix based on 2d array
 	 * 
 	 * @param data - data to fill the matrix
+	 * @return 
 	 */
-	public Matrix(double[][] data) {
-		// TODO Auto-generated constructor stub
+	public void Matrix(double[][] data) {
+		
+		rows = data.length;
+        columns = data[0].length;
+        this.matrixx = new double[rows][columns];
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++)
+                    this.matrixx[i][j] = data[i][j];
+		
 	}
 
 	/**
 	 * Returns the result of adding specified matrix to this matrix
 	 * @param matrix
+	 * @return 
 	 * @return
 	 */
-	public Matrix plus(Matrix matrix) {
-		// TODO Auto-generated method stub
-		return null;
+	private void Matrix(Matrix X) { 
+		this(X.matrixx); 
+		}
+	
+	public Matrix plus(Matrix Y) {
+		Matrix X = this;
+        Matrix Result = new Matrix(rows, columns);
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++)
+                Result.data[i][j] = X.data[i][j] + Y.data[i][j];
+        return Result;
 	}
 
 	/**
 	 * Returns the result of multiplying this matrix by specified number
 	 */
 	public Matrix times(double number) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Matrix X = this;
+		int n = 5;
+        Matrix Result = new Matrix(rows, columns);
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++)
+                Result.data[i][j] = X.data[i][j] * n;
+        return Result;
+        
 	}
 
 	/**
 	 * Returns the result of multiplying this matrix by specified matrix
 	 */
-	public Matrix times(Matrix matrix) {
-		// TODO Auto-generated method stub
-		return null;
+	public Matrix times(Matrix Y) {
+		Matrix X = this;
+        Matrix ResultMult = new Matrix(X.rows, Y.columns);
+        for (int i = 0; i < ResultMult.rows; i++)
+            for (int j = 0; j < ResultMult.columns; j++)
+                for (int a = 0; a < X.rows; a++)
+                ResultMult.data[i][j] += (X.data[i][a] * Y.data[a][j]);
+        return ResultMult;
 	}
 
 	/**
@@ -72,15 +109,24 @@ public class MatrixOps {
 	 * @return transpose of the invoking matrix
 	 */
 	public Matrix transpose() {
-		// TODO Auto-generated method stub
-		return null;
+		 Matrix X = new Matrix(rows, columns);
+	        for (int i = 0; i < rows; i++)
+	            for (int j = 0; j < columns; j++)
+	                X.data[j][i] = this.data[i][j];
+	        return X;
 	}
 
 	/**
 	 * Prints matrix to the "standard" output stream.
 	 */
 	public void print() {
-		// TODO Auto-generated method stub
+
+		for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) 
+               System.out.printf("Матрица ", data[i][j]);
+            System.out.println();
+        }
+		
 	}
 	
 	public static void main(String[] args) {

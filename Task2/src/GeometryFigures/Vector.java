@@ -15,23 +15,37 @@ public class Vector {
  */
 	private static final int DEFAULT_SIZE = 10;
 
+	private static Object element;
+
 	private Object[] objects;
 	private int size;
 
+	 	    
 	/**
 	 * Creates a new instance of Vector with default size (default size = 10).
 	 */
 	public Vector() {
-		// TODO Auto-generated constructor stub
+		this.size = 10;
+	    this.objects = new Object [10];
+	    System.out.println("Размер вектора:"+ objects.length); 
 	}
 
 	/**
 	 * Creates a new instance of Vector with a specified size.
 	 */
 	public Vector(int size) {
-		// TODO Auto-generated constructor stub
+		   this.size = size;
+	       this.objects = new Object [size];
+	    }
+	
+	/**
+	 * Removes all of the elements from this vector.
+	 */
+	public void clear() {
+		// TODO Auto-generated method stub
 	}
-
+	
+	
 	/**
 	 * Appends the specified element to the end of this vector
 	 * 
@@ -65,12 +79,7 @@ public class Vector {
 		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * Removes all of the elements from this vector.
-	 */
-	public void clear() {
-		// TODO Auto-generated method stub
-	}
+	
 
 	@Override
 	public String toString() {
@@ -79,8 +88,20 @@ public class Vector {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		 
+        Vector ar = new Vector();
+/* Очистить массив */       
+        ar.clear();
+/* Добавить ссылку на массив */       
+        ar.add(element);
+/* Получить j-й элемент */            
+        int j = 0;
+		System.out.println("j-й элемент :- "+ar.get(j));
+/* Удалить j-й элемент */        
+		ar.remove(j);
+/* Получить значения массива на экран */		
+		System.out.println(ar.toString());
+		
 	}
 
 }

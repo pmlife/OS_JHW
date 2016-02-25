@@ -44,14 +44,13 @@ public class MatrixOps {
 	 * @param data - data to fill the matrix
 	 * @return 
 	 */
-	public void Matrix(double[][] data) {
-		
-		rows = data.length;
-        columns = data[0].length;
+	public void Matrix(double[][] matrixx) {
+		rows = matrixx.length;
+        columns = matrixx[0].length;
         this.matrixx = new double[rows][columns];
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
-                    this.matrixx[i][j] = data[i][j];
+                    this.matrixx[i][j] = matrixx[i][j];
 		
 	}
 
@@ -70,7 +69,7 @@ public class MatrixOps {
         Matrix Result = new Matrix(rows, columns);
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
-                Result.data[i][j] = X.data[i][j] + Y.data[i][j];
+                Result.matrixx[i][j] = X.matrixx[i][j] + Y.matrixx[i][j];
         return Result;
 	}
 
@@ -84,7 +83,7 @@ public class MatrixOps {
         Matrix Result = new Matrix(rows, columns);
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
-                Result.data[i][j] = X.data[i][j] * n;
+                Result.matrixx[i][j] = X.matrixx[i][j] * n;
         return Result;
         
 	}
@@ -98,13 +97,14 @@ public class MatrixOps {
         for (int i = 0; i < ResultMult.rows; i++)
             for (int j = 0; j < ResultMult.columns; j++)
                 for (int a = 0; a < X.rows; a++)
-                ResultMult.data[i][j] += (X.data[i][a] * Y.data[a][j]);
+                ResultMult.data[i][j] += (X.matrixx[i][a] * Y.matrixx[a][j]);
         return ResultMult;
 	}
 
 	/**
 	 * Transposes (turn all the rows of a given matrix into columns and
 	 * vice-versa) this matrix
+	 * @param <Matrix>
 	 * 
 	 * @return transpose of the invoking matrix
 	 */
@@ -112,7 +112,7 @@ public class MatrixOps {
 		 Matrix X = new Matrix(rows, columns);
 	        for (int i = 0; i < rows; i++)
 	            for (int j = 0; j < columns; j++)
-	                X.data[j][i] = this.data[i][j];
+	                X.matrixx[j][i] = this.matrixx[i][j];
 	        return X;
 	}
 
@@ -123,7 +123,7 @@ public class MatrixOps {
 
 		for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) 
-               System.out.printf("Матрица ", data[i][j]);
+               System.out.printf("Матрица ", matrixx[i][j]);
             System.out.println();
         }
 		
